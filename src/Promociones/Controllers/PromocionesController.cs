@@ -108,7 +108,7 @@ namespace Promociones.Controllers
             }
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
             var promocion = _promocionesService.EliminarPromocion(id);
