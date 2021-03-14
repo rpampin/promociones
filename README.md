@@ -161,3 +161,11 @@ Se deben proveer las siguientes funcionalidades a través de una API Rest:
  - El servicio se debe poder correr localmente utilizando docker. Incluir readme con instrucciones.
  - Incluir collection de postman con ejemplos de utilización de cada endpoint
 
+## Contenedor
+Correr los siguientes comandos para levantar el contenedor
+
+    cd src\Promociones
+    docker-compose build
+    docker-compose up -d
+    
+Se accede a la api a partir de https://localhost:44348/api
