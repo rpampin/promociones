@@ -7,6 +7,10 @@ Correr los siguientes comandos para levantar el contenedor
     
 Se accede a la api a partir de https://localhost:44348/api
 
+# Collection de postman
+
+	./collection de postman
+
 # Consigna
 Se requiere el desarrollo de un microservicio que gestione, almacene y proporcione las promociones de la venta de productos de toda la compañía. El servicio será consumido por la venta en sucursal y online.
 
