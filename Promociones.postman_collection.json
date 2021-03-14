@@ -1,0 +1,1225 @@
+{
+	"info": {
+		"_postman_id": "7dcc9b05-9ae4-4e85-bc55-131b4bf5eacf",
+		"name": "Promociones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/Promociones",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/Promociones/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "392e517e-1ccd-b812-15c4-99e8ad60c824",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"8c4732a5-354b-40e0-e190-6b01588ef15f\",\n \"mediosDePago\": [\n  \"Excepteur\",\n  \"mollit fugiat nisi\"\n ],\n \"bancos\": [\n  \"et qui\",\n  \"sint do\"\n ],\n \"categoriasProductos\": [\n  \"reprehenderit\",\n  \"cillum eiusmod\"\n ],\n \"maximaCantidadDeCuotas\": 12957516,\n \"valorInteresCuotas\": 97995785.17679578,\n \"porcentajeDeDescuento\": 17984328.63052857,\n \"fechaInicio\": \"2011-06-07T00:29:42.604Z\",\n \"fechaFin\": \"1958-09-16T19:41:05.066Z\",\n \"activo\": false,\n \"fechaCreacion\": \"2006-07-12T10:55:29.997Z\",\n \"fechaModificacion\": \"1983-08-18T14:46:04.431Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Promociones/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "392e517e-1ccd-b812-15c4-99e8ad60c824",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+								}
+							]
+						},
+						{
+							"name": "/api/Promociones/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "392e517e-1ccd-b812-15c4-99e8ad60c824",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/Promociones/:id/Vigencia",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fechaInicio\": \"1948-05-06T03:25:08.432Z\",\n    \"fechaFin\": \"1954-04-05T15:42:42.339Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id/Vigencia",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id",
+										"Vigencia"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "392e517e-1ccd-b812-15c4-99e8ad60c824",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"fechaInicio\": \"1948-05-06T03:25:08.432Z\",\n    \"fechaFin\": \"1954-04-05T15:42:42.339Z\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/:id/Vigencia",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												":id",
+												"Vigencia"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Vigentes",
+					"item": [
+						{
+							"name": "/api/Promociones/Vigentes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/Vigentes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												"Vigentes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/Promociones/Vigentes/:fecha",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes/:fecha",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes",
+										":fecha"
+									],
+									"variable": [
+										{
+											"key": "fecha",
+											"value": "1944-05-27T06:50:49.620Z",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/Vigentes/:fecha",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												"Vigentes",
+												":fecha"
+											],
+											"variable": [
+												{
+													"key": "fecha"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/Promociones/Vigentes/Venta",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"medioDePago\": \"ut elit do commodo\",\n    \"banco\": \"mollit proident velit aliquip\",\n    \"categoriaProducto\": [\n        \"non e\",\n        \"dolor pariatur sint ipsum\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes/Venta",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes",
+										"Venta"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"medioDePago\": \"ips\",\n    \"banco\": \"sunt labore elit\",\n    \"categoriaProducto\": [\n        \"consectetur magna non sint\",\n        \"dolore consectetur\"\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Promociones/Vigentes/Venta",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Promociones",
+												"Vigentes",
+												"Venta"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": \"urn:uuid:0933da02-9fcc-f72f-6a8b-8303feac8c18\",\n  \"mediosDePago\": [\n   \"nulla \",\n   \"ad in Duis ex non\"\n  ],\n  \"bancos\": [\n   \"dolor occaecat non incididunt\",\n   \"veniam pariatur Ut irure\"\n  ],\n  \"categoriasProductos\": [\n   \"proident Ut velit deserunt tempor\",\n   \"dolore\"\n  ],\n  \"maximaCantidadDeCuotas\": -53042791,\n  \"valorInteresCuotas\": 52731155.54745513,\n  \"porcentajeDeDescuento\": -69924894.87470049\n },\n {\n  \"id\": \"0478dfb5-2b9f-d743-874b-870f1adab345\",\n  \"mediosDePago\": [\n   \"occaecat Duis in non\",\n   \"Lorem occaecat culpa\"\n  ],\n  \"bancos\": [\n   \"ut non magna\",\n   \"ad reprehenderit ex do esse\"\n  ],\n  \"categoriasProductos\": [\n   \"do consequat\",\n   \"tempor in qui sit\"\n  ],\n  \"maximaCantidadDeCuotas\": -20276199,\n  \"valorInteresCuotas\": -13117821.262989342,\n  \"porcentajeDeDescuento\": 20339462.948683858\n }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/api/Promociones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "/api/Promociones",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mediosDePago\": [\n        \"dolore\",\n        \"adipisicing commodo ipsum velit\"\n    ],\n    \"bancos\": [\n        \"laboris nostrud Duis\",\n        \"ad cillum occaecat aliquip velit\"\n    ],\n    \"categoriasProductos\": [\n        \"in eiusmod Ut\",\n        \"in et\"\n    ],\n    \"maximaCantidadDeCuotas\": 44026010,\n    \"valorInteresCuotas\": -48903056.70943338,\n    \"porcentajeDeDescuento\": 9522697.563334808,\n    \"fechaInicio\": \"1997-12-04T07:08:20.335Z\",\n    \"fechaFin\": \"1968-04-29T16:30:36.727Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ejemplos",
+			"item": [
+				{
+					"name": "Crear promoción vencida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mediosDePago\": [\"TARJETA_CREDITO\", \"TARJETA_DEBITO\"],\n    \"bancos\": [\"Galicia\", \"Santander Rio\"],\n    \"categoriasProductos\": [\"ElectroCocina\"],\n    \"maximaCantidadDeCuotas\": 12,\n    \"valorInteresCuotas\": 30,\n    \"fechaInicio\": \"2021-01-01\",\n    \"fechaFin\": \"2021-01-31\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+						}
+					]
+				},
+				{
+					"name": "Crear promoción vigente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mediosDePago\": [\"EFECTIVO\", \"TARJETA_CREDITO\", \"TARJETA_DEBITO\"],\n    \"bancos\": [\"Galicia\", \"Nacion\"],\n    \"categoriasProductos\": [\"ElectroCocina\"],\n    \"maximaCantidadDeCuotas\": 18,\n    \"valorInteresCuotas\": 40,\n    \"fechaInicio\": \"2021-03-01\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+						}
+					]
+				},
+				{
+					"name": "Ver listado de promociones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Ver una promoción",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9c538adf-68f4-48eb-b4c4-bf47d5d6e2ac",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"8c4732a5-354b-40e0-e190-6b01588ef15f\",\n \"mediosDePago\": [\n  \"Excepteur\",\n  \"mollit fugiat nisi\"\n ],\n \"bancos\": [\n  \"et qui\",\n  \"sint do\"\n ],\n \"categoriasProductos\": [\n  \"reprehenderit\",\n  \"cillum eiusmod\"\n ],\n \"maximaCantidadDeCuotas\": 12957516,\n \"valorInteresCuotas\": 97995785.17679578,\n \"porcentajeDeDescuento\": 17984328.63052857,\n \"fechaInicio\": \"2011-06-07T00:29:42.604Z\",\n \"fechaFin\": \"1958-09-16T19:41:05.066Z\",\n \"activo\": false,\n \"fechaCreacion\": \"2006-07-12T10:55:29.997Z\",\n \"fechaModificacion\": \"1983-08-18T14:46:04.431Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Ver listado de promociones vigentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/Vigentes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								"Vigentes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Ver listado de promociones vigentes para una fecha x",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/Vigentes/:fecha",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								"Vigentes",
+								":fecha"
+							],
+							"variable": [
+								{
+									"key": "fecha",
+									"value": "1944-05-27T06:50:49.620Z",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes/:fecha",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes",
+										":fecha"
+									],
+									"variable": [
+										{
+											"key": "fecha"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"urn:uuid:15d9e82b-9e9e-da02-878f-da162067324c\",\n  \"mediosDePago\": [\n   \"do irure consectetur ut\",\n   \"anim amet nisi tempor\"\n  ],\n  \"bancos\": [\n   \"in cupidatat consequat aliquip\",\n   \"deserunt dolore laboris\"\n  ],\n  \"categoriasProductos\": [\n   \"exercitation fugiat\",\n   \"velit\"\n  ],\n  \"maximaCantidadDeCuotas\": -81430918,\n  \"valorInteresCuotas\": -62551356.64905569,\n  \"porcentajeDeDescuento\": 75168557.89493474,\n  \"fechaInicio\": \"1995-11-21T05:05:54.383Z\",\n  \"fechaFin\": \"1966-12-24T21:24:00.677Z\",\n  \"activo\": true,\n  \"fechaCreacion\": \"1978-11-29T07:48:20.841Z\",\n  \"fechaModificacion\": \"1976-11-27T09:00:42.324Z\"\n },\n {\n  \"id\": \"41351a9f-481e-801b-3b17-27d072be2a55\",\n  \"mediosDePago\": [\n   \"id Lorem sunt tempor\",\n   \"enim\"\n  ],\n  \"bancos\": [\n   \"velit amet Ut\",\n   \"reprehenderit irure tempor\"\n  ],\n  \"categoriasProductos\": [\n   \"Duis\",\n   \"ea in reprehenderit quis proident\"\n  ],\n  \"maximaCantidadDeCuotas\": 59103205,\n  \"valorInteresCuotas\": -79814189.41256404,\n  \"porcentajeDeDescuento\": -21031213.246231496,\n  \"fechaInicio\": \"2015-09-13T04:41:13.174Z\",\n  \"fechaFin\": \"2017-11-07T18:41:42.662Z\",\n  \"activo\": false,\n  \"fechaCreacion\": \"2008-08-15T02:37:04.669Z\",\n  \"fechaModificacion\": \"1958-12-17T10:58:45.390Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Ver listado de promociones vigentes para una venta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"medioDePago\": \"ut elit do commodo\",\n    \"banco\": \"mollit proident velit aliquip\",\n    \"categoriaProducto\": [\n        \"non e\",\n        \"dolor pariatur sint ipsum\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/Vigentes/Venta",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								"Vigentes",
+								"Venta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"medioDePago\": \"ips\",\n    \"banco\": \"sunt labore elit\",\n    \"categoriaProducto\": [\n        \"consectetur magna non sint\",\n        \"dolore consectetur\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/Vigentes/Venta",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										"Vigentes",
+										"Venta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"urn:uuid:0933da02-9fcc-f72f-6a8b-8303feac8c18\",\n  \"mediosDePago\": [\n   \"nulla \",\n   \"ad in Duis ex non\"\n  ],\n  \"bancos\": [\n   \"dolor occaecat non incididunt\",\n   \"veniam pariatur Ut irure\"\n  ],\n  \"categoriasProductos\": [\n   \"proident Ut velit deserunt tempor\",\n   \"dolore\"\n  ],\n  \"maximaCantidadDeCuotas\": -53042791,\n  \"valorInteresCuotas\": 52731155.54745513,\n  \"porcentajeDeDescuento\": -69924894.87470049\n },\n {\n  \"id\": \"0478dfb5-2b9f-d743-874b-870f1adab345\",\n  \"mediosDePago\": [\n   \"occaecat Duis in non\",\n   \"Lorem occaecat culpa\"\n  ],\n  \"bancos\": [\n   \"ut non magna\",\n   \"ad reprehenderit ex do esse\"\n  ],\n  \"categoriasProductos\": [\n   \"do consequat\",\n   \"tempor in qui sit\"\n  ],\n  \"maximaCantidadDeCuotas\": -20276199,\n  \"valorInteresCuotas\": -13117821.262989342,\n  \"porcentajeDeDescuento\": 20339462.948683858\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Modificar una promoción",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"9c538adf-68f4-48eb-b4c4-bf47d5d6e2ac\",\n        \"MediosDePago\": [\n            \"EFECTIVO\",\n            \"TARJETA_CREDITO\",\n            \"TARJETA_DEBITO\"\n        ],\n        \"Bancos\": [\n            \"Galicia\",\n            \"Nacion\"\n        ],\n        \"CategoriasProductos\": [\n            \"ElectroCocina\",\n            \"GrandesElectro\"\n        ],\n        \"MaximaCantidadDeCuotas\": 18,\n        \"ValorInteresCuotas\": 40.0,\n        \"FechaInicio\": \"2021-03-01\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9c538adf-68f4-48eb-b4c4-bf47d5d6e2ac",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mediosDePago\": [\n        \"tempor ea Lorem\",\n        \"incididunt ex aliquip deserunt\"\n    ],\n    \"bancos\": [\n        \"velit dolore\",\n        \"proident labore sit\"\n    ],\n    \"categoriasProductos\": [\n        \"non do exercitation\",\n        \"veniam f\"\n    ],\n    \"maximaCantidadDeCuotas\": 41861569,\n    \"valorInteresCuotas\": -60020000.92758592,\n    \"porcentajeDeDescuento\": -85700835.83482662,\n    \"fechaInicio\": \"1956-02-23T09:09:56.024Z\",\n    \"fechaFin\": \"1954-04-30T21:07:42.288Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+						}
+					]
+				},
+				{
+					"name": "Modificar vigencia de promoción",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fechaInicio\": \"2021-03-01\",\n    \"fechaFin\": \"2021-04-30\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/:id/Vigencia",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								":id",
+								"Vigencia"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9c538adf-68f4-48eb-b4c4-bf47d5d6e2ac",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fechaInicio\": \"1948-05-06T03:25:08.432Z\",\n    \"fechaFin\": \"1954-04-05T15:42:42.339Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id/Vigencia",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id",
+										"Vigencia"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"392e517e-1ccd-b812-15c4-99e8ad60c824\""
+						}
+					]
+				},
+				{
+					"name": "Eliminar una promoción",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/Promociones/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Promociones",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9c538adf-68f4-48eb-b4c4-bf47d5d6e2ac",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Promociones/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Promociones",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:44348"
+		}
+	]
+}
