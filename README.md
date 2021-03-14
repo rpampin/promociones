@@ -1,3 +1,12 @@
+# Contenedor
+Correr los siguientes comandos para levantar el contenedor
+
+    cd src\Promociones
+    docker-compose build
+    docker-compose up -d
+    
+Se accede a la api a partir de https://localhost:44348/api
+
 # Consigna
 Se requiere el desarrollo de un microservicio que gestione, almacene y proporcione las promociones de la venta de productos de toda la compañía. El servicio será consumido por la venta en sucursal y online.
 
@@ -160,12 +169,3 @@ Se deben proveer las siguientes funcionalidades a través de una API Rest:
  - Unit tests
  - El servicio se debe poder correr localmente utilizando docker. Incluir readme con instrucciones.
  - Incluir collection de postman con ejemplos de utilización de cada endpoint
-
-## Contenedor
-Correr los siguientes comandos para levantar el contenedor
-
-    cd src\Promociones
-    docker-compose build
-    docker-compose up -d
-    
-Se accede a la api a partir de https://localhost:44348/api
