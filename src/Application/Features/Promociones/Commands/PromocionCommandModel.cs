@@ -1,10 +1,13 @@
+using Application.Wrappers;
+using MediatR;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entities
+namespace Application.Features.Commands
 {
-    public class Promocion : BaseEntity
+    public class PromocionCommandModel : IRequest<Response<Guid>>
     {
+        public Guid Id { get; set; }
         public IEnumerable<string> MediosDePago { get; set; }
         public IEnumerable<string> Bancos { get; set; }
         public IEnumerable<string> CategoriasProductos { get; set; }

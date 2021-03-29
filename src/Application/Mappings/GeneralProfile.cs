@@ -1,9 +1,7 @@
-﻿using Application.Features.Promociones.Commands;
+﻿using Application.Features.Commands;
+using Application.Features.Promociones.Queries.GetPromocionesVigentesParaVenta;
 using AutoMapper;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Application.Mappings
 {
@@ -11,9 +9,8 @@ namespace Application.Mappings
     {
         public GeneralProfile()
         {
-            CreateMap<Promocion, PromocionCommandViewModel>();
-            // CreateMap<Promocion, PromocionVentaViewModel>();
-            // CreateMap<PromocionPostViewModel, Promocion>();
+            CreateMap<Promocion, PromocionCommandModel>();
+            CreateMap<Promocion, PromocionesVigentesParaVentaModel>();
         }
     }
 }
