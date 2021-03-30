@@ -1,4 +1,5 @@
-﻿using Application.Features.Commands;
+﻿using Application.Features.Promociones.Commands.CreatePromocion;
+using Application.Features.Promociones.Commands.UpdatePromocion;
 using Application.Features.Promociones.Queries.GetPromocionesVigentesParaVenta;
 using AutoMapper;
 using Domain.Entities;
@@ -9,7 +10,8 @@ namespace Application.Mappings
     {
         public GeneralProfile()
         {
-            CreateMap<Promocion, PromocionCommandModel>();
+            CreateMap<Promocion, CreatePromocionCommand>().ReverseMap();
+            CreateMap<Promocion, UpdatePromocionCommand>().ReverseMap();
             CreateMap<Promocion, PromocionesVigentesParaVentaModel>();
         }
     }

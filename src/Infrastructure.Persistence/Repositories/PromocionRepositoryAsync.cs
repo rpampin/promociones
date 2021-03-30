@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Infrastructure.Persistence.Models;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Infrastructure.Persistence.Repositories
 {
     public class PromocionRepositoryAsync : GenericRepositoryAsync<Promocion>, IPromocionRepositoryAsync
     {
-        public PromocionRepositoryAsync(IBasePromociones settings) : base(settings) { }
+        public PromocionRepositoryAsync(IOptions<BasePromociones> basePromocionesOption) : base(basePromocionesOption) { }
 
         FilterDefinition<Promocion> FilterActivePromociones(DateTime? date = null)
         {

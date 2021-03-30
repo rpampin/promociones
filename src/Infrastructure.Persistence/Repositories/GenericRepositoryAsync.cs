@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Infrastructure.Persistence.Models;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace Infrastructure.Persistence.Repositories
     {
         protected readonly IMongoCollection<T> _dbContext;
 
-        public GenericRepositoryAsync(IBasePromociones basePromociones)
+        public GenericRepositoryAsync(IOptions<BasePromociones> basePromocionesOption)
         {
-            var client = new MongoClient(basePromociones.StringConnexion);
-            var database = client.GetDatabase(basePromociones.NombreBase);
-            _dbContext = database.GetCollection<T>(basePromociones.NombreColeccion);
+            var client = new MongoClient(basePromocionesOption.Value.StringConnexion);
+            var database = client.GetDatabase(basePromocionesOption.Value.NombreBase);
+            _dbContext = database.GetCollection<T>(basePromocionesOption.Value.NombreColeccion);
         }
 
         public async Task<bool> ExistsAsync(Guid Id)
