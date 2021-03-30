@@ -1,4 +1,5 @@
-﻿using Application.Features.Promociones.Commands.CreatePromocion;
+﻿using Application.Features.Commands;
+using Application.Features.Promociones.Commands.CreatePromocion;
 using Application.Features.Promociones.Commands.UpdatePromocion;
 using Application.Interfaces.Repositories;
 using AutoMapper;
@@ -9,23 +10,33 @@ using System.Linq;
 
 namespace Application.Features.Promociones.Commands
 {
-    public class PromocionCommandModelValidator : AbstractValidator<CreatePromocionCommand>
+    public class UpdatePromocionCommandValidator : AbstractValidator<UpdatePromocionCommand>
     {
-        private readonly IPromocionRepositoryAsync _promocionRepository;
-        private readonly IMapper _mapper;
+        public UpdatePromocionCommandValidator(IPromocionRepositoryAsync promocionRepository, IMapper mapper)
+        {
+            Include(new PromocionCommandModelValidator(promocionRepository, mapper));
+        }
+    }
 
+    public class CreatePromocionCommandValidator : AbstractValidator<CreatePromocionCommand>
+    {
+        public CreatePromocionCommandValidator(IPromocionRepositoryAsync promocionRepository, IMapper mapper)
+        {
+            Include(new PromocionCommandModelValidator(promocionRepository, mapper));
+        }
+    }
+
+    public class PromocionCommandModelValidator : AbstractValidator<PromocionCommandModel>
+    {
         public PromocionCommandModelValidator(IPromocionRepositoryAsync promocionRepository, IMapper mapper)
         {
-            _promocionRepository = promocionRepository;
-            _mapper = mapper;
-
             var medioDePagos = new string[]
-            {
+                {
                 "TARJETA_CREDITO",
                 "TARJETA_DEBITO",
                 "EFECTIVO",
                 "GIFT_CARD"
-            };
+                };
 
             var bancos = new string[]
             {
@@ -95,7 +106,7 @@ namespace Application.Features.Promociones.Commands
             {
                 if (prom.FechaInicio.HasValue)
                 {
-                    var solapada = await _promocionRepository.GetPromocionSolapadaAsync(_mapper.Map<Promocion>(prom));
+                    var solapada = await promocionRepository.GetPromocionSolapadaAsync(mapper.Map<Promocion>(prom));
                     if (solapada != null)
                         return false;
                 }

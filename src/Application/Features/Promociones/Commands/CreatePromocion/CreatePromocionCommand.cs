@@ -26,6 +26,8 @@ namespace Application.Features.Promociones.Commands.CreatePromocion
         public async Task<Response<Guid>> Handle(CreatePromocionCommand request, CancellationToken cancellationToken)
         {
             var promocion = _mapper.Map<Promocion>(request);
+            promocion.FechaCreacion = DateTime.UtcNow;
+            promocion.Activo = true;
             await _promocionRepository.AddAsync(promocion);
             return new Response<Guid>(promocion.Id);
         }

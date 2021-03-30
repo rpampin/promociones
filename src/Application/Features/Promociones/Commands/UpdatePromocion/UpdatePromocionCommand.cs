@@ -35,6 +35,7 @@ namespace Application.Features.Promociones.Commands.UpdatePromocion
             else
             {
                 promocion = _mapper.Map(command, promocion);
+                promocion.FechaModificacion = DateTime.UtcNow;
                 await _promocionRepository.UpdateAsync(promocion);
                 return new Response<Guid>(promocion.Id);
             }

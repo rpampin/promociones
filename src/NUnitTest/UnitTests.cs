@@ -1,15 +1,7 @@
 using AutoMapper;
-using FluentValidation;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using Moq;
 using NUnit.Framework;
-using Promociones.MappingConfigurations;
-using Promociones.Model;
-using Promociones.Services.Promociones;
-using Promociones.Services.Promociones.Net;
-using Promociones.Services.Repository.Net;
-using Promociones.ViewModel;
 using System;
 using System.Linq;
 

@@ -32,6 +32,7 @@ namespace Application.Features.Promociones.Commands.UpdateVigenciaPromocion
                 {
                     promocion.FechaInicio = command.FechaInicio;
                     promocion.FechaFin = command.FechaFin;
+                    promocion.FechaModificacion = DateTime.UtcNow;
                     await _promocionRepository.UpdateAsync(promocion);
                     return new Response<Guid>(promocion.Id);
                 }

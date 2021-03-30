@@ -22,7 +22,8 @@ namespace Application.Features.Promociones.Commands.DeletePromocionById
             {
                 var promocion = await _promocionRepository.GetByIdAsync(command.Id);
                 if (promocion == null) throw new ApiException($"Promoción no encontrada.");
-                await _promocionRepository.DeleteAsync(promocion);
+                promocion.Activo = false;
+                await _promocionRepository.UpdateAsync(promocion);
                 return new Response<Guid>(promocion.Id);
             }
         }
