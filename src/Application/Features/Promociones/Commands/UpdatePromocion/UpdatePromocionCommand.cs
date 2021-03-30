@@ -12,6 +12,8 @@ namespace Application.Features.Promociones.Commands.UpdatePromocion
 {
     public class UpdatePromocionCommand : PromocionCommandModel
     {
+        public Guid Id { get; set; }
+
     }
     public class UpdatePromocionCommandHandler : IRequestHandler<UpdatePromocionCommand, Response<Guid>>
     {

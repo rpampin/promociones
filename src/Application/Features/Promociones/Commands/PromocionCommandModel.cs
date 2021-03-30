@@ -7,7 +7,6 @@ namespace Application.Features.Commands
 {
     public class PromocionCommandModel : IRequest<Response<Guid>>
     {
-        public Guid Id { get; set; }
         public IEnumerable<string> MediosDePago { get; set; }
         public IEnumerable<string> Bancos { get; set; }
         public IEnumerable<string> CategoriasProductos { get; set; }

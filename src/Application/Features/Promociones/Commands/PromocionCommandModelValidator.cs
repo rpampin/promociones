@@ -1,4 +1,5 @@
-﻿using Application.Features.Commands;
+﻿using Application.Features.Promociones.Commands.CreatePromocion;
+using Application.Features.Promociones.Commands.UpdatePromocion;
 using Application.Interfaces.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace Application.Features.Promociones.Commands
 {
-    public class PromocionCommandModelValidator : AbstractValidator<PromocionCommandModel>
+    public class PromocionCommandModelValidator : AbstractValidator<CreatePromocionCommand>
     {
         private readonly IPromocionRepositoryAsync _promocionRepository;
         private readonly IMapper _mapper;
@@ -49,24 +50,14 @@ namespace Application.Features.Promociones.Commands
                 "Audio"
             };
 
-            RuleFor(p => p.MaximaCantidadDeCuotas)
-                .NotNull()
-                .When(p => !p.PorcentajeDeDescuento.HasValue)
-                .WithMessage(p => $"Solo {nameof(p.MaximaCantidadDeCuotas)} o {nameof(p.PorcentajeDeDescuento)} puede tener un valor.");
-
-            RuleFor(p => p.PorcentajeDeDescuento)
-                .NotNull()
-                .When(p => !p.MaximaCantidadDeCuotas.HasValue)
-                .WithMessage(p => $"Solo {nameof(p.MaximaCantidadDeCuotas)} o {nameof(p.PorcentajeDeDescuento)} puede tener un valor mayor a 0");
-
             RuleFor(p => p.ValorInteresCuotas)
                 .Null()
-                .When(p => !p.MaximaCantidadDeCuotas.HasValue)
+                .When(p => !p.MaximaCantidadDeCuotas.HasValue || p.MaximaCantidadDeCuotas.Value > 0)
                 .WithMessage(p => $"{nameof(p.ValorInteresCuotas)} solo puede tener valor si {nameof(p.MaximaCantidadDeCuotas)} tiene valor.");
 
             RuleFor(p => p.PorcentajeDeDescuento)
                 .InclusiveBetween(5, 80)
-                .When(p => p.PorcentajeDeDescuento.HasValue)
+                .When(p => p.PorcentajeDeDescuento.HasValue && p.PorcentajeDeDescuento.Value > 0)
                 .WithMessage(p => $"{nameof(p.PorcentajeDeDescuento)} debe ser superio o igual a 5, y menor o igual a 80.");
 
             RuleFor(p => p.FechaFin)
@@ -92,15 +83,24 @@ namespace Application.Features.Promociones.Commands
                     context.AddFailure($"Las categorias de productos válidos son: {string.Join(", ", categorias)}");
             });
 
-            RuleFor(p => p).Custom(async (prom, context) =>
+            RuleFor(p => p).Custom((prom, context) =>
+            {
+
+                if (prom.MaximaCantidadDeCuotas.HasValue && prom.PorcentajeDeDescuento.HasValue)
+                    if ((prom.MaximaCantidadDeCuotas.Value == 0 && prom.PorcentajeDeDescuento.Value == 0) || (prom.MaximaCantidadDeCuotas.Value > 0 && prom.PorcentajeDeDescuento.Value > 0))
+                        context.AddFailure($"{nameof(prom.MaximaCantidadDeCuotas)} o {nameof(prom.PorcentajeDeDescuento)} debe tener un valor mayor a 0");
+            });
+
+            RuleFor(p => p).MustAsync(async (prom, context) =>
             {
                 if (prom.FechaInicio.HasValue)
                 {
                     var solapada = await _promocionRepository.GetPromocionSolapadaAsync(_mapper.Map<Promocion>(prom));
                     if (solapada != null)
-                        context.AddFailure("Solapamiento", $"Ya existe una promoción activa que cumple con el rango de fechas indicado y contiene al menos un item repetido para {nameof(prom.MediosDePago)}, {nameof(prom.Bancos)} y/o {nameof(prom.CategoriasProductos)}");
+                        return false;
                 }
-            });
+                return true;
+            }).WithMessage(p => $"Ya existe una promoción activa que cumple con el rango de fechas indicado y contiene al menos un item repetido para {nameof(p.MediosDePago)}, {nameof(p.Bancos)} y/o {nameof(p.CategoriasProductos)}");
         }
     }
 }
