@@ -96,10 +96,14 @@ namespace Application.Features.Promociones.Commands
 
             RuleFor(p => p).Custom((prom, context) =>
             {
-
-                if (prom.MaximaCantidadDeCuotas.HasValue && prom.PorcentajeDeDescuento.HasValue)
-                    if ((prom.MaximaCantidadDeCuotas.Value == 0 && prom.PorcentajeDeDescuento.Value == 0) || (prom.MaximaCantidadDeCuotas.Value > 0 && prom.PorcentajeDeDescuento.Value > 0))
-                        context.AddFailure($"{nameof(prom.MaximaCantidadDeCuotas)} o {nameof(prom.PorcentajeDeDescuento)} debe tener un valor mayor a 0");
+                if (!prom.MaximaCantidadDeCuotas.HasValue && !prom.PorcentajeDeDescuento.HasValue)
+                    context.AddFailure("CuotaODescuento", $"{nameof(prom.MaximaCantidadDeCuotas)} o {nameof(prom.PorcentajeDeDescuento)} debe tener un valor mayor a 0");
+                else
+                {
+                    if (prom.MaximaCantidadDeCuotas.HasValue && prom.PorcentajeDeDescuento.HasValue)
+                        if ((prom.MaximaCantidadDeCuotas.Value == 0 && prom.PorcentajeDeDescuento.Value == 0) || (prom.MaximaCantidadDeCuotas.Value > 0 && prom.PorcentajeDeDescuento.Value > 0))
+                            context.AddFailure("CuotaODescuento", $"{nameof(prom.MaximaCantidadDeCuotas)} o {nameof(prom.PorcentajeDeDescuento)} debe tener un valor mayor a 0");
+                }
             });
 
             RuleFor(p => p).MustAsync(async (prom, context) =>
@@ -111,7 +115,9 @@ namespace Application.Features.Promociones.Commands
                         return false;
                 }
                 return true;
-            }).WithMessage(p => $"Ya existe una promoción activa que cumple con el rango de fechas indicado y contiene al menos un item repetido para {nameof(p.MediosDePago)}, {nameof(p.Bancos)} y/o {nameof(p.CategoriasProductos)}");
+            })
+                .WithName("Solapamiento")
+                .WithMessage(p => $"Ya existe una promoción activa que cumple con el rango de fechas indicado y contiene al menos un item repetido para {nameof(p.MediosDePago)}, {nameof(p.Bancos)} y/o {nameof(p.CategoriasProductos)}");
         }
     }
 }

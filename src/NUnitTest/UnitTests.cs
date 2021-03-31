@@ -1,4 +1,5 @@
 using Application;
+using Application.Features.Promociones.Commands;
 using Application.Features.Promociones.Commands.CreatePromocion;
 using Application.Features.Promociones.Commands.DeletePromocionById;
 using Application.Features.Promociones.Commands.UpdatePromocion;
@@ -376,202 +377,176 @@ namespace NUnitTest
             Assert.AreEqual(1, promocionesVigentes.Data.Count());
         }
 
-        //[Test]
-        //public async Task Crear_Promocion_Solapadas_Error()
-        //{
-        //    var services = new ServiceCollection();
-        //    services.AddApplicationLayer();
+        [Test]
+        public async Task Crear_Promocion_Solapadas_Error()
+        {
+            var createCommands = new CreatePromocionCommand[]
+            {
+                new CreatePromocionCommand()
+                {
+                    Bancos = new string[] { "Galicia" },
+                    MediosDePago = new string[] { "EFECTIVO" },
+                    CategoriasProductos = new string[] { "ElectroCocina" },
+                    PorcentajeDeDescuento = 30,
+                    FechaInicio = DateTime.Now.Date.AddDays(-2),
+                    FechaFin = DateTime.Now.Date.AddDays(2)
+                },
+                new CreatePromocionCommand()
+                {
+                    Bancos = new string[] { "ICBC" },
+                    MediosDePago = new string[] { "EFECTIVO" },
+                    CategoriasProductos = new string[] { "Colchones" },
+                    PorcentajeDeDescuento = 30,
+                    FechaInicio = DateTime.Now.Date.AddDays(-1),
+                    FechaFin = DateTime.Now.Date.AddDays(1)
+                }
+            };
 
-        //    var proms = new CreatePromocionCommand[]
-        //    {
-        //        new CreatePromocionCommand()
-        //        {
-        //            Bancos = new string[] { "Galicia11" },
-        //            MediosDePago = new string[] { "EFECTIVO11" },
-        //            CategoriasProductos = new string[] { "ElectroCocina11" },
-        //            PorcentajeDeDescuento = 30,
-        //            FechaInicio = DateTime.Now.Date.AddDays(-2),
-        //            FechaFin = DateTime.Now.Date.AddDays(2)
-        //        }
-        //        //new CreatePromocionCommand()
-        //        //{
-        //        //    Bancos = new string[] { "ICBC" },
-        //        //    MediosDePago = new string[] { "EFECTIVO" },
-        //        //    CategoriasProductos = new string[] { "Colchones" },
-        //        //    PorcentajeDeDescuento = 30,
-        //        //    FechaInicio = DateTime.Now.Date.AddDays(-1),
-        //        //    FechaFin = DateTime.Now.Date.AddDays(1)
-        //        //}
-        //    };
+            int errors = 0;
+            string errorField = "";
 
-        //    int errors = 0;
-        //    string errorField = "";
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            CreatePromocionCommandHandler createHandler = new CreatePromocionCommandHandler(_promocionRepositoryAsync, _mapper);
+            foreach (var cmd in createCommands)
+            {
+                var validation = valiator.Validate(cmd);
+                if (!validation.IsValid)
+                {
+                    errors++;
+                    errorField = validation.Errors.First().PropertyName;
+                }
+                else
+                    await createHandler.Handle(cmd, default(CancellationToken));
+            }
 
-        //    CreatePromocionCommandHandler createHandler = new CreatePromocionCommandHandler(_promocionRepositoryAsync, _mapper);
+            Assert.AreEqual(1, errors);
+            Assert.AreEqual("Solapamiento", errorField);
+        }
 
-        //    foreach (var command in proms)
-        //    {
-        //        var promocionCreada = await createHandler.Handle(command, default(CancellationToken));
-        //        if (!promocionCreada.Succeeded)
-        //        {
-        //            errors++;
-        //            //errorField = ex.Errors.First().PropertyName;
-        //        }
-        //    }
+        [Test]
+        public void Crear_Promocion_Sin_Cuotas_Ni_Descuento_Error()
+        {
+            var command = new CreatePromocionCommand
+            {
+                Bancos = new string[] { "Galicia" },
+                MediosDePago = new string[] { "EFECTIVO" },
+                CategoriasProductos = new string[] { "ElectroCocina" },
+                FechaInicio = DateTime.Now.Date.AddDays(-1),
+                FechaFin = DateTime.Now.Date.AddDays(1)
+            };
 
-        //    Assert.AreEqual(1, errors);
-        //    //Assert.AreEqual("Solapamiento", errorField);
-        //}
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            var validation = valiator.Validate(command);
 
-        //[Test]
-        //public async Task Crear_Promocion_Sin_Cuotas_Ni_Descuento_Error()
-        //{
-        //    var prom = new PromocionPostViewModel
-        //    {
-        //        Bancos = new string[] { "Galicia" },
-        //        MediosDePago = new string[] { "EFECTIVO" },
-        //        CategoriasProductos = new string[] { "ElectroCocina" },
-        //        FechaInicio = DateTime.Now.Date.AddDays(-1),
-        //        FechaFin = DateTime.Now.Date.AddDays(1)
-        //    };
+            Assert.IsFalse(validation.IsValid);
+            Assert.AreEqual(validation.Errors.First().PropertyName, "CuotaODescuento");
+        }
 
-        //    string errorField = "";
+        [Test]
+        public void Crear_Promocion_Con_Porcentaje_Interes_Sin_Cuotas_Error()
+        {
+            var command = new CreatePromocionCommand
+            {
+                Bancos = new string[] { "Galicia" },
+                MediosDePago = new string[] { "EFECTIVO" },
+                CategoriasProductos = new string[] { "ElectroCocina" },
+                PorcentajeDeDescuento = 35,
+                ValorInteresCuotas = 5,
+                FechaInicio = DateTime.Now.Date.AddDays(-1),
+                FechaFin = DateTime.Now.Date.AddDays(1)
+            };
 
-        //    try
-        //    {
-        //        _promocionesService.CrearPromocion(prom);
-        //    }
-        //    catch (ValidationException ex)
-        //    {
-        //        errorField = ex.Errors.First().PropertyName;
-        //    };
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            var validation = valiator.Validate(command);
 
-        //    Assert.IsNotEmpty(errorField);
-        //}
+            Assert.IsFalse(validation.IsValid);
+            Assert.AreEqual(nameof(command.ValorInteresCuotas), validation.Errors.First().PropertyName);
+        }
 
-        //[Test]
-        //public async Task Crear_Promocion_Con_Porcentaje_Interes_Sin_Cuotas_Error()
-        //{
-        //    var prom = new PromocionPostViewModel
-        //    {
-        //        Bancos = new string[] { "Galicia" },
-        //        MediosDePago = new string[] { "EFECTIVO" },
-        //        CategoriasProductos = new string[] { "ElectroCocina" },
-        //        PorcentajeDeDescuento = 35,
-        //        ValorInteresCuotas = 5,
-        //        FechaInicio = DateTime.Now.Date.AddDays(-1),
-        //        FechaFin = DateTime.Now.Date.AddDays(1)
-        //    };
+        [Test]
+        public void Crear_Promocion_Con_Descuento_Fuera_Rango_Error()
+        {
+            var command = new CreatePromocionCommand
+            {
+                Bancos = new string[] { "Galicia" },
+                MediosDePago = new string[] { "EFECTIVO" },
+                CategoriasProductos = new string[] { "ElectroCocina" },
+                PorcentajeDeDescuento = 2,
+                FechaInicio = DateTime.Now.Date.AddDays(-1),
+                FechaFin = DateTime.Now.Date.AddDays(1)
+            };
 
-        //    string errorField = "";
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            var validation = valiator.Validate(command);
 
-        //    try
-        //    {
-        //        _promocionesService.CrearPromocion(prom);
-        //    }
-        //    catch (ValidationException ex)
-        //    {
-        //        errorField = ex.Errors.First().PropertyName;
-        //    };
+            Assert.IsFalse(validation.IsValid);
+            Assert.AreEqual(nameof(command.PorcentajeDeDescuento), validation.Errors.First().PropertyName);
+        }
 
-        //    Assert.AreEqual(nameof(prom.ValorInteresCuotas), errorField);
-        //}
+        [Test]
+        public void Crear_Promocion_Con_Fin_Menor_Inicio_Error()
+        {
+            var command = new CreatePromocionCommand
+            {
+                Bancos = new string[] { "Galicia" },
+                MediosDePago = new string[] { "EFECTIVO" },
+                CategoriasProductos = new string[] { "ElectroCocina" },
+                PorcentajeDeDescuento = 50,
+                FechaInicio = DateTime.Now.Date.AddDays(-1),
+                FechaFin = DateTime.Now.Date.AddDays(-2)
+            };
 
-        //[Test]
-        //public async Task Crear_Promocion_Con_Descuento_Fuera_Rango_Error()
-        //{
-        //    var prom = new PromocionPostViewModel
-        //    {
-        //        Bancos = new string[] { "Galicia" },
-        //        MediosDePago = new string[] { "EFECTIVO" },
-        //        CategoriasProductos = new string[] { "ElectroCocina" },
-        //        PorcentajeDeDescuento = 2,
-        //        FechaInicio = DateTime.Now.Date.AddDays(-1),
-        //        FechaFin = DateTime.Now.Date.AddDays(1)
-        //    };
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            var validation = valiator.Validate(command);
 
-        //    string errorField = "";
+            Assert.IsFalse(validation.IsValid);
+            Assert.AreEqual(nameof(command.FechaFin), validation.Errors.First().PropertyName);
+        }
 
-        //    try
-        //    {
-        //        _promocionesService.CrearPromocion(prom);
-        //    }
-        //    catch (ValidationException ex)
-        //    {
-        //        errorField = ex.Errors.First().PropertyName;
-        //    };
+        [Test]
+        public async Task Modificar_Vigencia_Promocion_Error()
+        {
+            var createCommands = new CreatePromocionCommand[]
+            {
+                new CreatePromocionCommand()
+                {
+                    Bancos = new string[] { "Galicia" },
+                    MediosDePago = new string[] { "EFECTIVO" },
+                    CategoriasProductos = new string[] { "ElectroCocina" },
+                    PorcentajeDeDescuento = 30,
+                    FechaInicio = DateTime.Now.Date.AddDays(-2),
+                    FechaFin = DateTime.Now.Date.AddDays(1)
+                },
+                new CreatePromocionCommand()
+                {
+                    Bancos = new string[] { "ICBC" },
+                    MediosDePago = new string[] { "EFECTIVO" },
+                    CategoriasProductos = new string[] { "Colchones" },
+                    PorcentajeDeDescuento = 30,
+                    FechaInicio = DateTime.Now.Date,
+                    FechaFin = DateTime.Now.Date.AddDays(1)
+                }
+            };
 
-        //    Assert.AreEqual(nameof(prom.PorcentajeDeDescuento), errorField);
-        //}
+            int errors = 0;
+            string errorField = "";
 
-        //[Test]
-        //public async Task Crear_Promocion_Con_Fin_Menor_Inicio_Error()
-        //{
-        //    var prom = new PromocionPostViewModel
-        //    {
-        //        Bancos = new string[] { "Galicia" },
-        //        MediosDePago = new string[] { "EFECTIVO" },
-        //        CategoriasProductos = new string[] { "ElectroCocina" },
-        //        PorcentajeDeDescuento = 50,
-        //        FechaInicio = DateTime.Now.Date.AddDays(-1),
-        //        FechaFin = DateTime.Now.Date.AddDays(-2)
-        //    };
+            CreatePromocionCommandValidator valiator = new CreatePromocionCommandValidator(_promocionRepositoryAsync, _mapper);
+            CreatePromocionCommandHandler createHandler = new CreatePromocionCommandHandler(_promocionRepositoryAsync, _mapper);
+            foreach (var cmd in createCommands)
+            {
+                var validation = valiator.Validate(cmd);
+                if (!validation.IsValid)
+                {
+                    errors++;
+                    errorField = validation.Errors.First().PropertyName;
+                }
+                else
+                    await createHandler.Handle(cmd, default(CancellationToken));
+            }
 
-        //    string errorField = "";
-
-        //    try
-        //    {
-        //        _promocionesService.CrearPromocion(prom);
-        //    }
-        //    catch (ValidationException ex)
-        //    {
-        //        errorField = ex.Errors.First().PropertyName;
-        //    };
-
-        //    Assert.AreEqual(nameof(prom.FechaFin), errorField);
-        //}
-
-        //[Test]
-        //public async Task Modificar_Vigencia_Promocion_Error()
-        //{
-        //    var proms = new PromocionPostViewModel[]
-        //    {
-        //        new PromocionPostViewModel()
-        //        {
-        //            Bancos = new string[] { "Galicia" },
-        //            MediosDePago = new string[] { "EFECTIVO" },
-        //            CategoriasProductos = new string[] { "ElectroCocina" },
-        //            PorcentajeDeDescuento = 30,
-        //            FechaInicio = DateTime.Now.Date.AddDays(-2),
-        //            FechaFin = DateTime.Now.Date.AddDays(-1)
-        //        },
-        //        new PromocionPostViewModel()
-        //        {
-        //            Bancos = new string[] { "ICBC" },
-        //            MediosDePago = new string[] { "EFECTIVO" },
-        //            CategoriasProductos = new string[] { "Colchones" },
-        //            PorcentajeDeDescuento = 30,
-        //            FechaInicio = DateTime.Now.Date,
-        //            FechaFin = DateTime.Now.Date.AddDays(1)
-        //        }
-        //    };
-
-        //    PromocionViewModel lastProm = null;
-        //    string errorField = string.Empty;
-
-        //    foreach (var prom in proms)
-        //        lastProm = _promocionesService.CrearPromocion(prom);
-
-        //    try
-        //    {
-        //        _promocionesService.ActualizarVigenciaPromocion(lastProm.Id, new VigenciaViewModel { FechaInicio = DateTime.Now.Date.AddDays(-1), FechaFin = lastProm.FechaFin });
-        //    }
-        //    catch (ValidationException ex)
-        //    {
-        //        errorField = ex.Errors.First().PropertyName;
-        //    }
-
-        //    Assert.AreEqual("Solapamiento", errorField);
-        //}
+            Assert.AreEqual(1, errors);
+            Assert.AreEqual("Solapamiento", errorField);
+        }
     }
 }
