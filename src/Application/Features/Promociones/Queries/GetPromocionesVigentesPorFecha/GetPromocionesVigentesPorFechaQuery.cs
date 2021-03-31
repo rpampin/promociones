@@ -13,11 +13,11 @@ namespace Application.Features.Promociones.Queries.GetPromocionesVigentesPorFech
     {
         public DateTime Date { get; set; }
     }
-    public class GetPromocionesVigentesPorFechaQueryHandler : IRequestHandler<GetPromocionesVigentesPorFechaQuery, Response<IEnumerable<Promocion>>>
+    public class GetPromocionesVigentesPorFechaHandler : IRequestHandler<GetPromocionesVigentesPorFechaQuery, Response<IEnumerable<Promocion>>>
     {
         private readonly IPromocionRepositoryAsync _promocionRepository;
 
-        public GetPromocionesVigentesPorFechaQueryHandler(IPromocionRepositoryAsync promocionRepository)
+        public GetPromocionesVigentesPorFechaHandler(IPromocionRepositoryAsync promocionRepository)
         {
             _promocionRepository = promocionRepository;
         }

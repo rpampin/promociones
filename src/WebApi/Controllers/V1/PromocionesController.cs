@@ -29,7 +29,7 @@ namespace WebApi.Controllers.V1
         // POST api/<controller>
         [HttpPost]
         public async Task<IActionResult> Post(CreatePromocionCommand command) =>
-            return Ok(await Mediator.Send(command));
+             Ok(await Mediator.Send(command));
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]

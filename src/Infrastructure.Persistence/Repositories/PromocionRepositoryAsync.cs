@@ -44,9 +44,9 @@ namespace Infrastructure.Persistence.Repositories
 
             var filterBuilder = Builders<Promocion>.Filter;
             if (!string.IsNullOrEmpty(MedioDePago))
-                filters &= filterBuilder.ElemMatch(p => p.MediosDePago, MedioDePago);
-            if (!string.IsNullOrEmpty(MedioDePago))
-                filters &= filterBuilder.ElemMatch(p => p.Bancos, Banco);
+                filters &= filterBuilder.AnyEq(p => p.MediosDePago, MedioDePago);
+            if (!string.IsNullOrEmpty(Banco))
+                filters &= filterBuilder.AnyEq(p => p.Bancos, Banco);
             if (CategoriaProducto != null && CategoriaProducto.Count() > 0)
                 filters &= filterBuilder.AnyIn(p => p.CategoriasProductos, CategoriaProducto);
 
